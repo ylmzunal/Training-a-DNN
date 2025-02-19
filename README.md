@@ -1,4 +1,4 @@
-# CMPE 591: Deep Learning in Robotics - Homework 1
+# CMPE 591: Deep Learning in Robotics - Hmw 1
 
 ---
 
