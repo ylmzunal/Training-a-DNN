@@ -106,7 +106,7 @@ def test():
         plt.imshow(predicted_images[i].permute(1, 2, 0).cpu().numpy())
         plt.title("Predicted")
 
-        plt.savefig(f"output_{i}.png")
+        plt.savefig(f"image/output_{i}.png")
         plt.close()
 
     print("Predicted images saved.")

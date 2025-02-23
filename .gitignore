@@ -8,4 +8,4 @@ __pycache__/
 *.pyd
 
 # Specific image files to ignore
-~/*.png
+/image/*.png
