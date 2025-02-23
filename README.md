@@ -38,6 +38,8 @@ A total of **1000 data points** were generated for training and testing.
 - **Epochs**: 100.
 - **Final test loss**: **0.00478**.
 
+![MLP Training Loss:](https://github.com/user-attachments/assets/9e091eb5-a1fb-4d41-a6fe-fc5e2e4f3173)
+
 ---
 
 ### 🔹 Convolutional Neural Network (CNN)
@@ -57,15 +59,36 @@ A total of **1000 data points** were generated for training and testing.
 - **Epochs**: 100.
 - **Final test loss**: **0.0529**.
 
----
+[CNN Training Loss:](https://github.com/user-attachments/assets/cf403e36-91a1-4c8a-b456-1e244f43c95a)
 
+---
+### 🔹  Image Reconstruction using CNN
+### Description
+In this part, we train a CNN to reconstruct the post-action image given the pre-action image and action taken. The model learns to predict the environment’s visual changes.
+
+### **Training**
+- Model: CNN-based image reconstruction network
+- Loss Function: Mean Squared Error (MSE)
+- Optimizer: Adam
+- Number of Epochs: 100
+
+### Results
+The loss curve indicates that the model learns progressively, with a reduction in error over epochs.
+
+#### Training Loss Curve:
+![Reconstruction CNN Training Loss](https://github.com/user-attachments/assets/6a04a01d-5f98-43fc-98ba-fa4192dcd48a)
+
+### Predicted Outputs
+
+
+-----
 ## 📈 Results
 
 ### 🔹 Training Loss Over 100 Epochs
 
 | Epoch | MLP Loss | CNN Loss |
 |-------|---------|---------|
-| 1  | 0.2324  | 37,867,314.16 |
+| 1  | 0.2324  | 72.1283 |
 | 2  | 0.0714  | 0.1197 |
 | 3  | 0.0748  | 0.1098 |
 | 4  | 0.0484  | 0.1213 |
