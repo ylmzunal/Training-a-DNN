@@ -74,6 +74,7 @@ def train():
         optimizer.step()
 
         train_losses.append(loss.item())
+        
         if (epoch+1) % 10 == 0:
             print(f"Epoch [{epoch+1}/100], Loss: {loss.item():.4f}")
 

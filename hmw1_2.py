@@ -30,6 +30,11 @@ print("Image shape after permute:", img_before.shape)
 X = X.clone().detach() if isinstance(X, torch.Tensor) else torch.from_numpy(X).float()
 y = y.clone().detach() if isinstance(y, torch.Tensor) else torch.from_numpy(y).float()
 
+# Normalize input data
+img_before = img_before / 255.0  # Normalize to [0,1]
+X = X / X.max()  # Normalize features
+y = y / y.max()  # Normalize targets
+
 # Split dataset into training and testing sets (80% training, 20% testing)
 split_idx = int(0.8 * len(X))
 img_train, img_test = img_before[:split_idx], img_before[split_idx:]
@@ -42,12 +47,21 @@ class CNN(nn.Module):
         super(CNN, self).__init__()
         # First get input channels from data
         in_channels = img_before.shape[1]  # Should be 3 for RGB
+        
+        # Initialize with Xavier/Glorot initialization
         self.conv1 = nn.Conv2d(in_channels, 16, kernel_size=3, stride=1, padding=1)
+        nn.init.xavier_uniform_(self.conv1.weight)
+        
         self.conv2 = nn.Conv2d(16, 32, kernel_size=3, stride=1, padding=1)
-        # Calculate the flattened size based on input dimensions
+        nn.init.xavier_uniform_(self.conv2.weight)
+        
         self.flatten_size = 32 * img_before.shape[2] * img_before.shape[3]
+        
         self.fc1 = nn.Linear(self.flatten_size, 128)
+        nn.init.xavier_uniform_(self.fc1.weight)
+        
         self.fc2 = nn.Linear(128, y.shape[1])
+        nn.init.xavier_uniform_(self.fc2.weight)
 
     def forward(self, img):
         x = torch.relu(self.conv1(img))
@@ -60,7 +74,7 @@ class CNN(nn.Module):
 # Initialize model, loss function, and optimizer
 model = CNN()
 criterion = nn.MSELoss()
-optimizer = optim.Adam(model.parameters(), lr=0.001)
+optimizer = optim.Adam(model.parameters(), lr=0.0001)  # Reduced learning rate
 
 # Training function
 train_losses = []
