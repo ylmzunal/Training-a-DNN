@@ -103,7 +103,7 @@ def plot_loss():
     plt.title("Training and Test Loss Over Epochs")
     plt.legend()
     plt.grid(True)
-    plt.savefig("image/hmw1_1/loss_plot_2.png")
+    plt.savefig("image/loss_plot_2.png")
 
 # Run training
 if __name__ == "__main__":

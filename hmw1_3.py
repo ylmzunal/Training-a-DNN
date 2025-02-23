@@ -123,7 +123,7 @@ def plot_loss():
     plt.title("Training and Test Loss Over Epochs")
     plt.legend()
     plt.grid(True)
-    plt.savefig("image/hmw1_1/loss_plot_3.png")
+    plt.savefig("image/loss_plot_3.png")
 
     # Command-line argument handling
 if __name__ == "__main__":

@@ -8,5 +8,6 @@ __pycache__/
 *.pyd
 
 # Specific image files to ignore
-/image/*.png
-mujoco_menagerie/
+/image/
+/image/hmw1_1/
+/mujoco_menagerie/

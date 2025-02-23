@@ -15,8 +15,8 @@ env = Hw1Env(render_mode="gui")
 data = []
 i= 0
 for _ in range(10):
-    print(f"{i}. iteration")
     i +=1
+    print(f"{i}. iteration")
     env.reset()
     action_id = np.random.randint(4)
     _, img_before = env.state()
