@@ -26,11 +26,11 @@ for _ in range(10):
     data.append((img_before, action_id, pos_after, img_after))
 
 
-# Define the dataset path
-dataset_path = "dataset.pkl"
+# # Define the dataset path
+# dataset_path = "dataset.pkl"
 
-# Save the collected data to a file
-with open(dataset_path, "wb") as f:
-    pickle.dump(data, f)
+# # Save the collected data to a file
+# with open(dataset_path, "wb") as f:
+#     pickle.dump(data, f)
 
-print(f"Dataset saved to {dataset_path}")
+# print(f"Dataset saved to {dataset_path}")

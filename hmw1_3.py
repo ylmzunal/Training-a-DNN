@@ -56,6 +56,8 @@ class ReconstructionCNN(nn.Module):
         x = self.decoder(x)
         return x
 
+train_losses = []
+
 def train():
     model = ReconstructionCNN()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
@@ -64,7 +66,7 @@ def train():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
 
-    for epoch in range(10):
+    for epoch in range(100):
         optimizer.zero_grad()
         outputs = model(img_before.to(device))
         loss = criterion(outputs, img_after.to(device))
@@ -111,6 +113,17 @@ def test():
 
     print("Predicted images saved.")
 
+def plot_loss():
+    epochs = range(1, len(train_losses) + 1)
+    plt.figure(figsize=(8, 5))
+    plt.plot(epochs, train_losses, label="Train Loss", marker='o', linestyle="-", color='b')
+    # plt.plot(epochs, test_losses * len(train_losses), label="Test Loss", marker='s', linestyle="--", color='r')
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.title("Training and Test Loss Over Epochs")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("image/hmw1_1/loss_plot_3.png")
 
     # Command-line argument handling
 if __name__ == "__main__":
@@ -124,3 +137,4 @@ if __name__ == "__main__":
     else:
         train()
         test()
+        plot_loss

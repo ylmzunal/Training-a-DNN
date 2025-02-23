@@ -9,3 +9,4 @@ __pycache__/
 
 # Specific image files to ignore
 /image/*.png
+mujoco_menagerie/

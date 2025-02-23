@@ -8,6 +8,7 @@ import torch.optim as optim
 import pickle
 import numpy as np
 from Prep_funct import preprocess_data  # Import preprocessing function
+import matplotlib.pyplot as plt
 
 # Load dataset from pickle file
 with open("dataset.pkl", "rb") as f:
@@ -62,6 +63,8 @@ criterion = nn.MSELoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
 # Training function
+train_losses = []
+
 def train():
     print("Starting CNN model training...")
     num_epochs = 100
@@ -71,6 +74,7 @@ def train():
         loss = criterion(outputs, y_train)
         loss.backward()
         optimizer.step()
+        train_losses.append(loss.item())
 
         if (epoch + 1) % 10 == 0:
             print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}")
@@ -89,6 +93,18 @@ def test():
         loss = criterion(predictions, y_test)
         print(f"Test Loss: {loss.item():.4f}")
 
+def plot_loss():
+    epochs = range(1, len(train_losses) + 1)
+    plt.figure(figsize=(8, 5))
+    plt.plot(epochs, train_losses, label="Train Loss", marker='o', linestyle="-", color='b')
+    # plt.plot(epochs, test_losses * len(train_losses), label="Test Loss", marker='s', linestyle="--", color='r')
+    plt.xlabel("Epochs")
+    plt.ylabel("Loss")
+    plt.title("Training and Test Loss Over Epochs")
+    plt.legend()
+    plt.grid(True)
+    plt.savefig("image/hmw1_1/loss_plot_2.png")
+
 # Run training
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -101,3 +117,4 @@ if __name__ == "__main__":
     else:
         train()
         test()
+        plot_loss()
