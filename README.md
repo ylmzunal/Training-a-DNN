@@ -59,7 +59,7 @@ A total of **1000 data points** were generated for training and testing.
 - **Epochs**: 100.
 - **Final test loss**: **0.0529**.
 
-[CNN Training Loss:](https://github.com/user-attachments/assets/cf403e36-91a1-4c8a-b456-1e244f43c95a)
+![CNN Training Loss:](https://github.com/user-attachments/assets/cf403e36-91a1-4c8a-b456-1e244f43c95a)
 
 ---
 ### 🔹  Image Reconstruction using CNN
