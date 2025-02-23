@@ -73,6 +73,7 @@ def train():
         loss.backward()
         optimizer.step()
 
+        train_losses.append(loss.item())
         if (epoch+1) % 10 == 0:
             print(f"Epoch [{epoch+1}/100], Loss: {loss.item():.4f}")
 
@@ -120,12 +121,14 @@ def plot_loss():
     # plt.plot(epochs, test_losses * len(train_losses), label="Test Loss", marker='s', linestyle="--", color='r')
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.title("Training and Test Loss Over Epochs")
+    plt.title("ReconstructionCNN Training Loss Over Epochs")
     plt.legend()
     plt.grid(True)
     plt.savefig("image/loss_plot_3.png")
+    print("Loss plot saved as loss_plot_3.png")  
+    plt.close()
 
-    # Command-line argument handling
+# Command-line argument handling
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         if sys.argv[1] == "train":
@@ -137,4 +140,4 @@ if __name__ == "__main__":
     else:
         train()
         test()
-        plot_loss
+        plot_loss()

@@ -92,7 +92,7 @@ def plot_loss():
     # plt.plot(epochs, test_losses * len(train_losses), label="Test Loss", marker='s', linestyle="--", color='r')
     plt.xlabel("Epochs")
     plt.ylabel("Loss")
-    plt.title("Training and Test Loss Over Epochs")
+    plt.title("MLP Training Loss Over Epochs")
     plt.legend()
     plt.grid(True)
     plt.savefig("image/loss_plot_1.png")
