@@ -62,11 +62,11 @@ A total of **1000 data points** were generated for training and testing.
 [CNN Training Loss:](https://github.com/user-attachments/assets/cf403e36-91a1-4c8a-b456-1e244f43c95a)
 
 ---
-## Part 3: Image Reconstruction using CNN
+### 🔹  Image Reconstruction using CNN
 ### Description
 In this part, we train a CNN to reconstruct the post-action image given the pre-action image and action taken. The model learns to predict the environment’s visual changes.
 
-### Training Details
+### **Training**
 - Model: CNN-based image reconstruction network
 - Loss Function: Mean Squared Error (MSE)
 - Optimizer: Adam
