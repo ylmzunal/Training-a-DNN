@@ -1,5 +1,4 @@
-# CMPE 591: Deep Learning in Robotics - Hmw 1
-
+# Deep Learning in Robotics
 ---
 
 ## 📌 Introduction
